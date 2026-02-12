@@ -16,7 +16,7 @@ return new class extends Migration
             $table->longText('content');
             $table->string('featured_image');
             $table->string('author_name');
-            $table->foreignId('category_id')->nullable()->constrained();
+            $table->string('category')->nullable();
             $table->integer('views')->default(0);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();

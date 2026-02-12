@@ -12,7 +12,7 @@ class BlogPost extends Model
 
     protected $fillable = [
         'title', 'slug', 'excerpt', 'content', 'featured_image',
-        'author_name', 'category_id', 'views', 'published_at'
+        'author_name', 'category', 'views', 'published_at'
     ];
 
     protected $casts = [
