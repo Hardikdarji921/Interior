@@ -25,7 +25,8 @@
         </div>
         <div class="row">
             <div class="col-lg-12 text-center">
-                <a href="{{ route('projects') }}" class="primary-btn normal-btn">View All Projects</a>
+                <!-- FIX: Changed from route('projects') to route('portfolio') -->
+                <a href="{{ route('portfolio') }}" class="primary-btn normal-btn">View All Projects</a>
             </div>
         </div>
     </div>

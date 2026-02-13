@@ -10,19 +10,50 @@
             <div class="col-lg-8">
                 <nav class="header__menu mobile-menu">
                     <ul>
-                        <li class="{{ request()->routeIs('home') ? 'active' : '' }}"><a href="{{ route('home') }}">Home</a></li>
-                        <li class="{{ request()->routeIs('about') ? 'active' : '' }}"><a href="{{ route('about') }}">About</a></li>
-                        <li class="{{ request()->routeIs('services*') ? 'active' : '' }}"><a href="{{ route('services') }}">Services</a></li>
-                        <li class="{{ request()->routeIs('projects*') ? 'active' : '' }}"><a href="{{ route('projects') }}">Projects</a>
+                        <li class="{{ request()->routeIs('home') ? 'active' : '' }}">
+                            <a href="{{ route('home') }}">Home</a>
+                        </li>
+                        <li class="{{ request()->routeIs('about') ? 'active' : '' }}">
+                            <a href="{{ route('about') }}">About</a>
+                        </li>
+                        <li class="{{ request()->routeIs('services*') ? 'active' : '' }}">
+                            <a href="{{ route('services') }}">Services</a>
+                        </li>
+                        
+                        <!-- Portfolio (Public Projects) -->
+                        <li class="{{ request()->routeIs('portfolio*') ? 'active' : '' }}">
+                            <a href="{{ route('portfolio') }}">Portfolio</a>
+                        </li>
+                        
+                        <!-- Calculator Dropdown -->
+                        <li class="{{ request()->routeIs('calculator*') || request()->routeIs('projects.*') ? 'active' : '' }}">
+                            <a href="{{ route('calculator.index') }}">
+                                <i class="fa fa-calculator mr-1"></i> Calculator
+                            </a>
                             <ul class="dropdown">
-                                <li><a href="{{ route('projects') }}">All Projects</a></li>
-                                <li><a href="#">Residential</a></li>
-                                <li><a href="#">Commercial</a></li>
-                                <li><a href="#">Office</a></li>
+                                <li><a href="{{ route('calculator.index') }}">Cost Calculator</a></li>
+                                <li><a href="{{ route('calculator.category', 'paint') }}">Paint Calculator</a></li>
+                                <li><a href="{{ route('calculator.category', 'furniture') }}">Furniture Estimator</a></li>
+                                @auth
+                                <li><a href="{{ route('projects.index') }}">My Saved Projects</a></li>
+                                @endauth
                             </ul>
                         </li>
-                        <li class="{{ request()->routeIs('blog*') ? 'active' : '' }}"><a href="{{ route('blog') }}">Blog</a></li>
-                        <li class="{{ request()->routeIs('contact') ? 'active' : '' }}"><a href="{{ route('contact') }}">Contact</a></li>
+                        
+                        <li class="{{ request()->routeIs('blog*') ? 'active' : '' }}">
+                            <a href="{{ route('blog') }}">Blog</a>
+                        </li>
+                        <li class="{{ request()->routeIs('contact') ? 'active' : '' }}">
+                            <a href="{{ route('contact') }}">Contact</a>
+                        </li>
+                        
+                        @auth
+                        <li>
+                            <a href="{{ route('projects.index') }}">
+                                <i class="fa fa-folder-open"></i> My Projects
+                            </a>
+                        </li>
+                        @endauth
                     </ul>
                 </nav>
             </div>
